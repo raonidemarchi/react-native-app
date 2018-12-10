@@ -5,20 +5,20 @@ export default class App extends Component {
   constructor(props) {
     super(props)
 
-    this.setState({
-      phrase: null
-    })
+    this.state = {
+      sentence: null
+    }
 
-    this.geraNumeroAleatorio().bind(this)
+    this.geraNumeroAleatorio = this.geraNumeroAleatorio.bind(this)
   }
 
   componentWillMount() {
-    // alert('tyeste')
+    this.geraNumeroAleatorio()
   }
 
-  geraNumeroAleatorio = () => {
+  geraNumeroAleatorio() {
     const randomIndex = Math.floor(Math.random() * 5)
-    const phrases = [
+    const sentences = [
       'Frase 1',
       'Frase 2',
       'Frase 3',
@@ -26,11 +26,13 @@ export default class App extends Component {
       'Frase 5'
     ]
 
-    this.phrases.setState(phrases[randomIndex])
+    this.setState({
+      sentence: sentences[randomIndex]
+    })
   }
 
   render() {
-    const { phrase } = this.state
+    const { sentence } = this.state
 
     return (
       <View style={styles.view}>
@@ -40,7 +42,7 @@ export default class App extends Component {
         </ScrollView>
         
         <View style={styles.footer}>
-          <Text style={styles.footerText}>Rodapé</Text>
+          <Text style={styles.footerText}>{this.state.sentence}</Text>
         </View>
       </View>
     )
@@ -58,7 +60,8 @@ const styles = {
   footer: {
     padding: 16,
     backgroundColor: '#fff',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    
   },
   footerText: {
     fontSize: 20

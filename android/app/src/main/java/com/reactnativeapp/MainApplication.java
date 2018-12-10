@@ -1,4 +1,4 @@
-package com.awesomeproject;
+package com.reactnativeapp;
 
 import android.app.Application;
 
