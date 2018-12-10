@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Button, ScrollView } from 'react-native'
 
 export default class App extends Component {
+  
   constructor(props) {
     super(props)
 
@@ -42,7 +43,7 @@ export default class App extends Component {
         </ScrollView>
         
         <View style={styles.footer}>
-          <Text style={styles.footerText}>{this.state.sentence}</Text>
+          <Text style={styles.footerText}>{sentence}</Text>
         </View>
       </View>
     )
@@ -60,8 +61,7 @@ const styles = {
   footer: {
     padding: 16,
     backgroundColor: '#fff',
-    justifyContent: 'flex-end',
-    
+    justifyContent: 'flex-end'
   },
   footerText: {
     fontSize: 20
